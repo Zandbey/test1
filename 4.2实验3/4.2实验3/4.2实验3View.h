@@ -31,12 +31,17 @@ public:
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
 #endif
+	CRect cr;
+	int set = 1;
+	int f = 1;
 
 protected:
 
 // 生成的消息映射函数
 protected:
 	DECLARE_MESSAGE_MAP()
+public:
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
 };
 
 #ifndef _DEBUG  // 4.2实验3View.cpp 中的调试版本
