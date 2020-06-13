@@ -39,6 +39,8 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	afx_msg void OnShow();
+	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
+	afx_msg void OnLButtonDblClk(UINT nFlags, CPoint point);
 };
 
 #ifndef _DEBUG  // 7.1例子（1）View.cpp 中的调试版本

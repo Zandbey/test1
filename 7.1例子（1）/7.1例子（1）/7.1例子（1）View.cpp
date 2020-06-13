@@ -23,6 +23,8 @@ IMPLEMENT_DYNCREATE(CMy71例子（1）View, CView)
 
 BEGIN_MESSAGE_MAP(CMy71例子（1）View, CView)
 	ON_COMMAND(ID_SHOW, &CMy71例子（1）View::OnShow)
+	ON_WM_LBUTTONDOWN()
+	ON_WM_LBUTTONDBLCLK()
 END_MESSAGE_MAP()
 
 // CMy71例子（1）View 构造/析构
@@ -98,3 +100,15 @@ void CMy71例子（1）View::OnShow()
 	}
 
 }
+
+
+void CMy71例子（1）View::OnLButtonDown(UINT nFlags, CPoint point)
+{
+	// TODO: 在此添加消息处理程序代码和/或调用默认值
+	Dialog *pD = new Dialog;
+	pD->Create(IDD_DIALOG1);
+	pD->ShowWindow(1);
+	CView::OnLButtonDown(nFlags, point);
+}
+
+
