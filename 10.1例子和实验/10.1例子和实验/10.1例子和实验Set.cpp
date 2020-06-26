@@ -27,14 +27,14 @@ CMy101例子和实验Set::CMy101例子和实验Set(CDatabase* pdb)
 	m_nFields = 4;
 	m_nDefaultType = snapshot;
 }
-#error 安全问题: 连接字符串可能包含密码。
+//#error 安全问题: 连接字符串可能包含密码。
 // 此连接字符串中可能包含明文密码和/或其他重要
 // 信息。请在查看完此连接字符串并找到所有与安全
 // 有关的问题后移除 #error。可能需要将此密码存
 // 储为其他格式或使用其他的用户身份验证。
 CString CMy101例子和实验Set::GetDefaultConnect()
 {
-	return _T("DSN=\x6570\x636e\x6e90_\x4fe1\x606f\x88681;DBQ=D:\\\x5927\x4e8c\x5404\x79d1\x8bfe\x4ef6\\visual c\\\x6570\x636e\x6e90\\Database1.mdb;DefaultDir=D:\\\x5927\x4e8c\x5404\x79d1\x8bfe\x4ef6\\visual c\\\x6570\x636e\x6e90;DriverId=25;FIL=MS Access;MaxBufferSize=2048;PageTimeout=5;UID=admin;");
+return _T("DSN=\x6570\x636e\x6e90_\x4fe1\x606f\x88681;DBQ=D:\\\x5927\x4e8c\x5404\x79d1\x8bfe\x4ef6\\visual c\\\x6570\x636e\x6e90\\Database1.mdb;DefaultDir=D:\\\x5927\x4e8c\x5404\x79d1\x8bfe\x4ef6\\visual c\\\x6570\x636e\x6e90;DriverId=25;FIL=MS Access;MaxBufferSize=2048;PageTimeout=5;UID=admin;");
 }
 
 CString CMy101例子和实验Set::GetDefaultSQL()
