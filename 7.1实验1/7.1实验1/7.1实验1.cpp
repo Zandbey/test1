@@ -7,7 +7,7 @@
 #include "afxdialogex.h"
 #include "7.1实验1.h"
 #include "MainFrm.h"
-
+#include "MyDialog.h"
 #include "7.1实验1Doc.h"
 #include "7.1实验1View.h"
 
@@ -30,8 +30,6 @@ END_MESSAGE_MAP()
 
 CMy71实验1App::CMy71实验1App()
 {
-	m_bHiColorIcons = TRUE;
-
 	// 支持重新启动管理器
 	m_dwRestartManagerSupportFlags = AFX_RESTART_MANAGER_SUPPORT_ALL_ASPECTS;
 #ifdef _MANAGED
@@ -95,16 +93,6 @@ BOOL CMy71实验1App::InitInstance()
 	SetRegistryKey(_T("应用程序向导生成的本地应用程序"));
 	LoadStdProfileSettings(4);  // 加载标准 INI 文件选项(包括 MRU)
 
-
-	InitContextMenuManager();
-
-	InitKeyboardManager();
-
-	InitTooltipManager();
-	CMFCToolTipInfo ttParams;
-	ttParams.m_bVislManagerTheme = TRUE;
-	theApp.GetTooltipManager()->SetTooltipParams(AFX_TOOLTIP_TYPE_ALL,
-		RUNTIME_CLASS(CMFCToolTipCtrl), &ttParams);
 
 	// 注册应用程序的文档模板。  文档模板
 	// 将用作文档、框架窗口和视图之间的连接
@@ -184,28 +172,6 @@ void CMy71实验1App::OnAppAbout()
 {
 	CAboutDlg aboutDlg;
 	aboutDlg.DoModal();
-}
-
-// CMy71实验1App 自定义加载/保存方法
-
-void CMy71实验1App::PreLoadState()
-{
-	BOOL bNameValid;
-	CString strName;
-	bNameValid = strName.LoadString(IDS_EDIT_MENU);
-	ASSERT(bNameValid);
-	GetContextMenuManager()->AddMenu(strName, IDR_POPUP_EDIT);
-	bNameValid = strName.LoadString(IDS_EXPLORER);
-	ASSERT(bNameValid);
-	GetContextMenuManager()->AddMenu(strName, IDR_POPUP_EXPLORER);
-}
-
-void CMy71实验1App::LoadCustomState()
-{
-}
-
-void CMy71实验1App::SaveCustomState()
-{
 }
 
 // CMy71实验1App 消息处理程序

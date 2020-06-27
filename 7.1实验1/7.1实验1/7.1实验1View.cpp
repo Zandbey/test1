@@ -11,7 +11,7 @@
 
 #include "7.1实验1Doc.h"
 #include "7.1实验1View.h"
-
+#include "MyDialog.h"
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -22,8 +22,8 @@
 IMPLEMENT_DYNCREATE(CMy71实验1View, CView)
 
 BEGIN_MESSAGE_MAP(CMy71实验1View, CView)
-	ON_WM_CONTEXTMENU()
-	ON_WM_RBUTTONUP()
+	ON_EN_CHANGE(IDC_EDIT1, &CMy71实验1View::OnEnChangeEdit1)
+	ON_COMMAND(ID_showeixt, &CMy71实验1View::Onshoweixt)
 END_MESSAGE_MAP()
 
 // CMy71实验1View 构造/析构
@@ -58,19 +58,6 @@ void CMy71实验1View::OnDraw(CDC* /*pDC*/)
 	// TODO: 在此处为本机数据添加绘制代码
 }
 
-void CMy71实验1View::OnRButtonUp(UINT /* nFlags */, CPoint point)
-{
-	ClientToScreen(&point);
-	OnContextMenu(this, point);
-}
-
-void CMy71实验1View::OnContextMenu(CWnd* /* pWnd */, CPoint point)
-{
-#ifndef SHARED_HANDLERS
-	theApp.GetContextMenuManager()->ShowPopupMenu(IDR_POPUP_EDIT, point.x, point.y, this, TRUE);
-#endif
-}
-
 
 // CMy71实验1View 诊断
 
@@ -94,3 +81,27 @@ CMy71实验1Doc* CMy71实验1View::GetDocument() const // 非调试版本是内联的
 
 
 // CMy71实验1View 消息处理程序
+
+
+void CMy71实验1View::OnEnChangeEdit1()
+{
+	// TODO:  如果该控件是 RICHEDIT 控件，它将不
+	// 发送此通知，除非重写 CView::OnInitDialog()
+	// 函数并调用 CRichEditCtrl().SetEventMask()，
+	// 同时将 ENM_CHANGE 标志“或”运算到掩码中。
+
+	// TODO:  在此添加控件通知处理程序代码
+
+}
+
+
+void CMy71实验1View::Onshoweixt()
+{
+	MyDialog myDialog;
+	int r = myDialog.DoModal();
+	if (r == IDOK) {
+		CString s = _T("你已退出对话框");
+		GetDC()->TextOutW(200, 200, s);
+	}
+	// TODO: 在此添加命令处理程序代码
+}
